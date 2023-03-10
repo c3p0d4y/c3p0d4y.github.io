@@ -8,13 +8,13 @@ categories: ["Ransomware"]
 
 ## Introduction
 
-SkullLocker  is a type of malwares that encrypts files on infected computers and demands payment for decryption. 
-it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities.  it was discovered in 2016 and since then several of the ransomware have been found in the wild . 
+SkullLocker  is a type of malware that encrypts files on infected computers and demands payment for decryption. 
+it spread through the same techniques used by most of the known malware like phishing emails or malicious websites, and software vulnerabilities.  it was discovered in 2016 and since then several of the ransomware has been found in the wild. 
 
 the malware could perform the following functions/techniques : 
 * randomize file extensions with 4 char strings (  Program.RandomStringForExtension(4)))
-* Spread through multiple places under the name "svchost.exe" (trying to hide under a ligit process name)
-* add RegKey   : SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run  in $location using the key microsoft store
+* Spread through multiple places under the name "svchost.exe" (trying to hide under a legit process name)
+* add RegKey   : SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run  in $location using the Microsoft  store
 * locations : 
 ```cs
 "\\Desktop";            
@@ -73,13 +73,19 @@ The sample used in this article is the same one mentioned by [macert](https://ww
 ## Analysis 
 
 
-According to first analysis it appears that the ransomware is built using .net .
+
+
+
+
+
+
+Accordingord to the analysis it appears that the ransomware is built using .net.
 
 ![detect it easy](/images/die.png)
 
-the ransomware doesn't have any obfuscation techniques all you need to decompile it using .net tools and you will have the source code ( i personaly hate these kind of ransomwares since i do not enjoy breaking them down). 
+the ransomware doesn't have any obfuscation techniques all you need to decompile it using .net tools and you will have the source code ( i hate this kind of ransomware since I do not enjoy breaking them down). 
 
-in order to understand how it works we will cover the principal methodes and functions that is used to encrypt files and how it work in general .
+in order to understand how it works we will cover the principal methods and functions that are used to encrypt files and how it works in general.
 
 ### Infection Chain
 
@@ -99,7 +105,7 @@ private static void disableRecoveryMode()
 		}
 ```
 
-- configure the Windows Boot Manager settings to ignore any boot failures and disable the automatic startup repair .
+- configure the Windows Boot Manager settings to ignore any boot failures and disable the automatic startup repair.
 
 ```cs
 private static void deleteBackupCatalog()
@@ -108,7 +114,7 @@ private static void deleteBackupCatalog()
 		}
 ```
 
--  Delete the backup catalog. The backup catalog is a database that contains information about the backups created using Windows Backup . 
+-  Delete the backup catalog. The backup catalog is a database that contains information about the backups created using Windows Backup. 
 
 
 ```cs
@@ -141,7 +147,7 @@ private static void spreadIt(string spreadName)
 private static string processName = "svchost.exe";
 ```
 
-* the malware also copy itself to `svchost.exe` , it's not doing any sort of injection but only copying it self to the same svchost.exe name .
+* The malware also copies itself to svchost.exe, it's not doing any sort of injection but only copying itself to the same svchost.exe name.
 
 ```cs
 private static void copyResistForAdmin(string processName)
@@ -205,7 +211,7 @@ private static void copyResistForAdmin(string processName)
 		}
 ```
 
-- Copies  Friendlyname (current executable name) if it doesnt already exist to **/AppData/Roaming/** under the name of **svchost.exe** then creates a new ProcessStartInfo object that specifies the process to start and sets the appropriate properties for the process to run with elevated privileges.
+- Copies  Friendlyname (current executable name) if it doesn't already exist to **/AppData/Roaming/** under the name of **svchost.exe** then creates a new ProcessStartInfo object that specifies the process to start and sets the appropriate properties for the process to run with elevated privileges.
 
 ```cs
 private static void addLinkToStartup()
@@ -242,7 +248,7 @@ private static void registryStartup()
 
 - utilizing the SetValue method to assign the location of the present executable file as the value for the "**Microsoft Store**" key. The objective is to add a registry entry to the Windows registry, which enables the current application to launch automatically during system startup
 
-### Encryption methodes
+### Encrypt methods 
 
 #### Directory Encryption
 ```cs
@@ -307,8 +313,8 @@ private static void registryStartup()
 
 ```
 
-This function is responsible of encryption directories , it take `location` as an input . This `location` is defined in the `lookForDirectories`  function which refer to the `Desktop`
- directory in windows env . 
+This function is responsible of encryption directories , it takes `location` as  input . This `location` is defined in the `lookForDirectories`  function which refers to the `Desktop`
+ directory in windows env. 
  
 ```cs
 	string location = Program.userDir + Program.userName + "\\Desktop";
@@ -318,19 +324,19 @@ This function is responsible of encryption directories , it take `location` as a
 Program.encryptDirectory(location);
 ```
 
-The main idea of the function is to loop through the  `Desktop` directory and list all files and subdirectories.  the `getFiles` is responsible of retrieving the files in the `location`  using the class `Directory` which contains a bunch of things that is verified such as : fullpath, userPath, searOption 
+The main idea of the function is to loop through the  `Desktop` directory and list all files and subdirectories.  the `getFiles` is responsible of retrieving the files in the `location`  using the class `Directory` which contains a bunch of things that is verified such as full path, user path, searOption 
 
 `string[] files = Directory.GetFiles(location);`
-after this it loop through files , the first thing that the malware checks/validate  the file extension .
+after this it loops through files, the first thing that the malware checks/validate  the file extension.
 
 `if (Array.Exists<string>(Program.validExtensions, (string E) => E == extension.ToLower()) && fileName != Program.droppedMessageTextbox)`
 
-if the file extension should not be the same as the malware which is indecated in the `droppedMessageTextbo`  which is basicaly the file that the malware write when the encryption is finished and contains the threat actors message 
+if the file extension should not be the same as the malware which is indicated in the `droppedMessageTextbo`  which is basically the file that the malware write when the encryption is finished and contains the threat actors message 
 `private static string droppedMessageTextbox = "read_it.txt";`
 
-the last part of this is about checking the size of the files is the file size is less than `2117152`  which is approximatly 2MB  `if (fileInfo.Length < 2117152L)` 
-it encrypt the file using `EncrypotFile` which we will see later in the post .
-the second if condition is about checking again the size of the file if it's bigger than 200000000bytes it generate a random a strng of the length between 200000000 and 300000000 bytes, than it encodes it using `randomEncode` method . after the encoding it writes it to the file using the `WriteAllText`  than appending a random 4 characters extension generated by the `RandomStringForExtension`  .
+the last part of this is about checking the size of the files is the file size is less than `2117152`  which is approximately 2MB  `if (fileInfo.Length < 2117152L)` 
+it encrypts the file using `EncrypotFile` which we will see later in the post.
+the second if condition is about checking again the size of the file if it's bigger than 200000000bytes it generates a random string of the length between 200000000 and 300000000 bytes then it encodes it using `randomEncode` method . after the encoding, it writes it to the file using the WriteAllText then appending a random 4 characters extension generated by the `RandomStringForExtension`  .
 .
 
 #### file Encryption 
@@ -347,7 +353,7 @@ analyse this : 	public static void EncryptFile(string file)
 
 ```
 
-this function is the function that encrypt the files it takes file as an input and reads all the file  bytes `bytesToBeEncrypted` , than it creates a password of length 20 using the `CreatePassword` method _ we will cover it in other section _  , this password is converted to bytes array using UTF-8 encoding . the `bytesToBeEncrypted`  is using AES encryption algorithm and the bytes password using `AES_Encrypt`  method _ we will cover it in other secion _  . the last part is about moving files using `move` and appending new extension using  `RandomStringForExtension` with 4 character string  .
+this function is the function that encrypts the files it takes the file as an input and reads all the file  bytes `bytesToBeEncrypted` thenan it creates a password of length 20 using the `CreatePassword` method _ we will cover it in another section _  , this password is converted to bytes array using UTF-8 encoding. the `bytesToBeEncrypted`  is using AES encryption algorithm and the bytes password uses AES_Encrypt method _ we will cover it in other section _ . the last part is about moving files using `move` and appending new extensions using RandomStringForExtension` with 4 character string  .
 
 #### RSA encryption
 
@@ -376,8 +382,8 @@ this function is the function that encrypt the files it takes file as an input a
 
 ```
 
-the rsaEncrypt method takes a `textToEncrypt`  and a `publicKeyString` as inputs .
-first it takes the `textToEncrypt` and convert it to byte array again using UTF-8 encodiing , and generate an RSA encryption object with a key size of 1024  using `rsaCryptoServiceProvider` . this encryption is used to encrypt the byte array and convert them into base64 encoding string .
+the rsaEncrypt method takes a `textToEncrypt`  and a publicKeyString input.
+first, it takes the `textToEncrypt` and converts it to a byte array again using UTF-8 encoding, and generates an RSA encryption object with a key size of 1024  using `rsaCryptoServiceProvider` . this encryption is used to encrypt the byte array and convert them into a base64 encoding string.
 
 #### AES encryption
 
@@ -421,12 +427,12 @@ first it takes the `textToEncrypt` and convert it to byte array again using UTF-
 
 ```
 
-the AES encrupt methode is the one responsible of encryption it takes the bytestobeencrypted and the passwordbytes we mentioned above.
+the AES encrypt method is the one responsible for encryption it takes the bytestobeencrypted and the password bytes we mentioned above.
 
-the methode seems to be like all the AES encryption implementation in any programing language , it initialize the sale in a fixed array also it initialize the MemoryStream onject to store the encrypted data , it initialize also the `RijndaeManaged` to configure the encryption settings .
-we can also see the usage of the `Rfc2898DeriveBytes`  object which will generate the key and IV  based on the PasswordBytes and the salt values . the 1000 at the end i guess its for iterations .
-at the end of the methode we see `CryptoStream ` which is initailiazed to write the encrypted Data to `MemoRyStream` 
-the data is encrypted using the RijndaelManaged object and the bytestoBeEncrypted is written to CryptoStream which will be converted to MemoryStream at the end .
+the method seems to be like all the AES encryption implementations in any programing language , it initializes the sale in a fixed array also it initializes the MemoryStream object to store the encrypted data, it initialize also the `RijndaeManaged` to configure the encryption settings.
+we can also see the usage of the `Rfc2898DeriveBytes`  object which will generate the key and IV  based on the PasswordBytes and the salt values. 1000 at the end I guess its for iterations.
+at the end of the method we see `CryptoStream ` which is initialized to write the encrypted data to MemoRyStream` 
+the data is encrypted using the RijndaelManaged object and the bytestoBeEncrypted is written to CryptoStream which will be converted to MemoryStream at the end.
 
 
 #### Password used in the encryption 
@@ -444,8 +450,8 @@ the data is encrypted using the RijndaelManaged object and the bytestoBeEncrypte
 
 ```
 
-thios function is reponsible of creating the password used in functions above to encrypt files , it take a length as inpuit , first it creates a `StringBuilder`  which is used to store the password and create a `random`  object to generate random integers, those steps are used to loop through the length within each loop iterations it appends a random character from the string containing all possible characters that can be used in the password .
-the end of the methode returns the final password .
+this function is responsible for creating the password used in the functions above to encrypt files, it takes a length as input, first, it creates a `StringBuilder`  which is used to store the password and create a `random`  object to generate random integers, those steps are used to loop through the length within each loop iterations it appends a random character from the string containing all possible characters that can be used in the password.
+the end of the method returns the final password.
 
 
 ## Detection
