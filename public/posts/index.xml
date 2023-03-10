@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - c3p0d4y</title>
+        <link>https://c3p0d4y.github.io/posts/</link>
+        <description>All Posts | c3p0d4y</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>c3p0d4y@gmail.com (c3p0d4y)</managingEditor>
+            <webMaster>c3p0d4y@gmail.com (c3p0d4y)</webMaster><lastBuildDate>Fri, 10 Mar 2023 14:28:32 &#43;0100</lastBuildDate><atom:link href="https://c3p0d4y.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>SkulLocker</title>
+    <link>https://c3p0d4y.github.io/2023/03/skullocker/</link>
+    <pubDate>Fri, 10 Mar 2023 14:28:32 &#43;0100</pubDate>
+    <author>c3p0d4y</author>
+    <guid>https://c3p0d4y.github.io/2023/03/skullocker/</guid>
+    <description><![CDATA[SkullLocker Ransomware SkullLocker is a type of malwares that encrypts files on infected computers and demands payment for decryption. it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities. it was discovered in 2016 and since then several of the ransomware have been found in the wild .
+the malware could perform the following functions/techniques :
+randomize file extensions with 4 char strings ( Program.]]></description>
+</item>
+</channel>
+</rss>

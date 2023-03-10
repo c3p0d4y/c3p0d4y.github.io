@@ -1,0 +1,247 @@
+baseURL = "https://c3p0d4y.github.io"
+theme = "LoveIt"
+title = "c3p0d4y"
+defaultContentLanguage = "en"
+languageCode = "en"
+languageName = "English"
+hasCJKLanguage = false
+paginate = 12
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+
+ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
+
+[author]
+  name = "c3p0d4y"
+  email = "c3p0d4y@gmail.com"
+  link = "https://c3p0d4y.github.io"
+
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "posts"
+    url = "/posts/"
+    title = ""
+  [[menu.main]]
+    weight = 2
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+  [[menu.main]]
+    weight = 3
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+
+[params]
+  defaultTheme = "dark"
+  gitRepo = "https://github.com/dillonzq/LoveIt"
+  fingerprint = ""
+  dateFormat = "2006-01-02"
+  title = "c3p0d4y"
+  description = "Welcome to c3p0d4y"
+  images = ["/logo.png"]
+
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = ""
+      name = "c3p0d4y"
+      pre = "<i class='fa-solid fa-terminal' aria-hidden='true'></i>"
+      post = ""
+      typeit = true
+
+  [params.footer]
+    enable = true
+    custom = ""
+    hugo = false
+    copyright = true
+    author = true
+    since = 2019
+    icp = ""
+    license= '<a rel="This is free and unencumbered software released into the public domain." href="https://unlicense.org" target="_blank">The Unlicense</a>'
+
+  [params.section]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.list]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.app]
+    title = "c3p0d4y"
+    noFavicon = false
+    svgFavicon = ""
+    themeColor = "#ffffff"
+    iconColor = "#5bbad5"
+    tileColor = "#da532c"
+
+  [params.search]
+    enable = true
+    type = "algolia"
+    contentLength = 4000
+    placeholder = ""
+    maxResultLength = 10
+    snippetLength = 30
+    highlightTag = "em"
+    absoluteURL = false
+    [params.search.algolia]
+      index = ""
+      appID = ""
+      searchKey = ""
+
+  [params.home]
+    rss = 10
+    [params.home.profile]
+      enable = true
+      gravatarEmail = ""
+      avatarURL = "/images/logo.png"
+      title = "c3p0d4y"
+      subtitle = "Welcome to my personal notes"
+      typeit = false
+      social = true
+      disclaimer = ""
+    [params.home.posts]
+      enable = false
+      paginate = 6
+  [params.social]
+    GitHub         = "c3p0d4y"
+    Twitter        = "c3p0d4y"
+    Youtubechannel = "dd"
+    Twitch         = "c3p0d4y"
+    Email          = "c3p0d4y@gmail.com"
+
+  [params.page]
+    hiddenFromHomePage = false
+    hiddenFromSearch = false
+    twemoji = true
+    lightgallery = true
+    ruby = true
+    fraction = true
+    fontawesome = true
+    linkToMarkdown = false
+    rssFullText = false
+    [params.page.toc]
+      enable = true
+      keepStatic = false
+      auto = true
+    [params.page.code]
+      copy = true
+      maxShownLines = 50
+    [params.page.math]
+      enable = false
+      inlineLeftDelimiter = ""
+      inlineRightDelimiter = ""
+      blockLeftDelimiter = ""
+      blockRightDelimiter = ""
+      copyTex = true
+      mhchem = true
+    [params.page.mapbox]
+      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+      navigation = true
+      geolocate = true
+      scale = true
+      fullscreen = true
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = true
+      Linkedin = true
+      HackerNews = true
+      Reddit = true
+    [params.page.comment]
+      enable = false
+    [params.page.library]
+      [params.page.library.css]
+        # someCSS = "some.css"
+        # someCSS = "https://cdn.example.com/some.css"
+      [params.page.library.js]
+        # someJavascript = "some.js"
+        # someJavascript = "https://cdn.example.com/some.js"
+
+  [params.typeit]
+    speed = 100
+    cursorSpeed = 1000
+    cursorChar = "|"
+    duration = -1
+
+  # CDN config for third-party library files
+  [params.cdn]
+    # CDN data file name, disabled by default
+    # ["jsdelivr.yml"]
+    # located in "themes/LoveIt/assets/data/cdn/" directory
+    # you can store your own data files in the same path under your project:
+    # "assets/data/cdn/"
+    # ["jsdelivr.yml"]
+    # 位于 "themes/LoveIt/assets/data/cdn/" 目录
+    # "assets/data/cdn/"
+    data = "jsdelivr.yml"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[Permalinks]
+  posts = ":year/:month/:filename"
+
+[privacy]
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
+
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+
