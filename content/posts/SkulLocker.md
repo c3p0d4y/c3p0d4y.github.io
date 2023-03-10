@@ -13,7 +13,7 @@ it spread thourgh the same techniques used by most of knowen malwares like phish
 
 the malware could perform the following functions/techniques : 
 * randomize file extensions with 4 char strings (  Program.RandomStringForExtension(4)))
-* Spread through svchost.exe process 
+* 1.  Spread through multiple places under the name "svchost.exe" (trying to hide under a ligit process name)
 * add RegKey   : SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run  in $location using the key microsoft store
 * locations : 
 ```cs
