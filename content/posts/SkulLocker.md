@@ -4,7 +4,6 @@ date: 2023-03-10T14:28:32+01:00
 draft: false
 tags: ["Ransomware", "Reversing", "SkullLocker"]
 categories: ["Ransomware"]
-
 ---
 
 
@@ -482,8 +481,8 @@ rule Mal_SkulLocker_2023{
 |           |                                      |                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 # References
-[Malware Bazar](https://bazaar.abuse.ch/sample/bb5ca9d8de51734dbd14dc081c7c892d819cd14fafd7ccd62849d70f9e679369/)
-[DGSSI](https://www.dgssi.gov.ma/fr/content/4061060323-skulllocker-ransomware.html)
+* [Malware Bazar](https://bazaar.abuse.ch/sample/bb5ca9d8de51734dbd14dc081c7c892d819cd14fafd7ccd62849d70f9e679369/)
+* [DGSSI](https://www.dgssi.gov.ma/fr/content/4061060323-skulllocker-ransomware.html)
 
 
 ## Contributors
