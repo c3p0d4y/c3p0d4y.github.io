@@ -141,6 +141,8 @@ private static void spreadIt(string spreadName)
 private static string processName = "svchost.exe";
 ```
 
+* the malware also copy itself to `svchost.exe` , it's not doing any sort of injection but only copying it self to the same svchost.exe name .
+
 ```cs
 private static void copyResistForAdmin(string processName)
 		{
