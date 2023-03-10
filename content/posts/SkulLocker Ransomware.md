@@ -6,9 +6,7 @@ tags: ["Ransomware", "Reversing", "SkullLocker"]
 categories: ["Ransomware"]
 ---
 
-
-
-# SkullLocker Ransomware 
+## Introduction
 
 SkullLocker  is a type of malwares that encrypts files on infected computers and demands payment for decryption. 
 it spread thourgh the same techniques used by most of knowen malwares like phishing emails or malicious websites , software vulnerabilities.  it was discovered in 2016 and since then several of the ransomware have been found in the wild . 
