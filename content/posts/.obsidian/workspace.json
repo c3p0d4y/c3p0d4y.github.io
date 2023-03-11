@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SkulLocker.md",
+                "file": "SkullLocker.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "5ab703e030bd2143",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SkulLocker.md",
+                "file": "SkullLocker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SkulLocker.md",
+                "file": "SkullLocker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SkulLocker.md"
+                "file": "SkullLocker.md"
               }
             }
           }
@@ -139,6 +138,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-grammarly-plugin:Enable Grammarly": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -148,6 +148,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fe1f7e76ad11df46",
-  "lastOpenFiles": []
+  "active": "c4a5e4262d4bada2",
+  "lastOpenFiles": [
+    "RaccoonStealer.md",
+    "SkullLocker.md"
+  ]
 }
