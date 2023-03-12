@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5ab703e030bd2143",
@@ -148,7 +149,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c4a5e4262d4bada2",
+  "active": "fe1f7e76ad11df46",
   "lastOpenFiles": [
     "RaccoonStealer.md",
     "SkullLocker.md"
